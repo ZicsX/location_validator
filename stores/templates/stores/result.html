@@ -1,0 +1,17 @@
+<h2>All Stores</h2>
+<!-- Display all stores -->
+{% for store in all_stores %}
+    <p>{{ store.name }} - {{ store.address }}</p>
+{% endfor %}
+
+<h2>Verified Stores</h2>
+<!-- Display verified stores -->
+{% for store in verified_stores %}
+    <p>{{ store.name }} - {{ store.address }}</p>
+{% endfor %}
+
+<h2>Flagged Stores</h2>
+<!-- Display flagged stores -->
+{% for store in flagged_stores %}
+    <p>{{ store.name }} - {{ store.address }}</p>
+{% endfor %}

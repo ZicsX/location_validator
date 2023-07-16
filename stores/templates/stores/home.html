@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Location Validator</title>
+</head>
+<body>
+    <h1>Enter Store Locator URL</h1>
+    <form method="post">
+        {% csrf_token %}
+        <p>{{ form.url.label_tag }} {{ form.url }}</p>
+        <button type="submit">Scrape</button>
+    </form>
+</body>
+</html>
