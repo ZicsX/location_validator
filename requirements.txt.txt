@@ -1,4 +1,0 @@
-django
-selenium
-psycopg2-binary
-python-dotenv
