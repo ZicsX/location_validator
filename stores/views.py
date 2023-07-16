@@ -1,28 +1,23 @@
-from django.shortcuts import render
-from .forms import UrlForm
+from django.shortcuts import redirect, render
 from .models import Store
+from .scraper import scrape_store_data
 
 def home(request):
     if request.method == 'POST':
-        form = UrlForm(request.POST)
-        if form.is_valid():
-            url = form.cleaned_data['url']
-            # scraping
-            # validation
-
-            return render(request, 'stores/result.html')
+        url = request.POST['url']
+        scrape_store_data(url)
+        
+        return redirect('result')
     else:
-        form = UrlForm()
-
-    return render(request, 'stores/home.html', {'form': form})
+        return render(request, 'stores/home.html')
 
 def result(request):
-    all_stores = Store.objects.all()
+    stores = Store.objects.all()
     verified_stores = Store.objects.filter(is_verified=True)
     flagged_stores = Store.objects.filter(is_verified=False)
 
     context = {
-        'all_stores': all_stores,
+        'stores': stores,
         'verified_stores': verified_stores,
         'flagged_stores': flagged_stores,
     }
