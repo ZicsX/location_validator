@@ -1,0 +1,11 @@
+django
+selenium
+psycopg2-binary
+python-dotenv
+webdriver_manager
+beautifulsoup4
+requests
+pytest
+pytest-html
+pandas
+numpy
