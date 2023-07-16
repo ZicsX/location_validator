@@ -22,7 +22,7 @@ def scrape_store_data(url):
 
     store_data = json.loads(store_data_json)
 
-    for store in store_data['data'][:5]: # remove slicing in prod
+    for store in store_data['data']:
         validated_store = find_store(store['latitude'], store['longitude'], 50)
 
         if validated_store:
