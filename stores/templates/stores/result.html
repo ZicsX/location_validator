@@ -1,17 +1,86 @@
-<h2>All Stores</h2>
-<!-- Display all stores -->
-{% for store in all_stores %}
-    <p>{{ store.name }} - {{ store.address }}</p>
-{% endfor %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Store Scraper</title>
+    <!-- Add Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        {% if stores %}
+        <h2>All Stores</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for store in stores %}
+                <tr>
+                    <td>{{ store.id }}</td>
+                    <td>{{ store.name }}</td>
+                    <td>{{ store.latitude }}</td>
+                    <td>{{ store.longitude }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
 
-<h2>Verified Stores</h2>
-<!-- Display verified stores -->
-{% for store in verified_stores %}
-    <p>{{ store.name }} - {{ store.address }}</p>
-{% endfor %}
+        {% if verified_stores %}
+        <h2>Verified Stores</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for store in verified_stores %}
+                <tr>
+                    <td>{{ store.name }}</td>
+                    <td>{{ store.address }}</td>
+                    <td>{{ store.latitude }}</td>
+                    <td>{{ store.longitude }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
 
-<h2>Flagged Stores</h2>
-<!-- Display flagged stores -->
-{% for store in flagged_stores %}
-    <p>{{ store.name }} - {{ store.address }}</p>
-{% endfor %}
+        {% if flagged_stores %}
+        <h2>Flagged Stores</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for store in flagged_stores %}
+                <tr>
+                    <td>{{ store.id }}</td>
+                    <td>{{ store.name }}</td>
+                    <td>{{ store.latitude }}</td>
+                    <td>{{ store.longitude }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+    </div>
+
+    <!-- Add Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

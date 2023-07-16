@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Location Validator</title>
+    <title>Location validator app</title>
+    <!-- Add Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Enter Store Locator URL</h1>
-    <form method="post">
-        {% csrf_token %}
-        <p>{{ form.url.label_tag }} {{ form.url }}</p>
-        <button type="submit">Scrape</button>
-    </form>
+    <div class="container">
+        <h1 class="text-center">Location validator app</h1>
+
+        <form method="POST" class="form-inline">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="url">Enter the URL of the store locator:</label>
+                <input type="text" id="url" name="url" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Scrape and validate</button>
+        </form>
+    </div>
+
+    <!-- Add Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>

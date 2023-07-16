@@ -28,7 +28,7 @@ def scrape_store_data(url):
         if validated_store:
             # Create a new Store object for each store
             new_store = Store(id=store['id'],
-                              name=validated_store['name'],
+                              name=store['name'],
                               address = validated_store['address'],
                               latitude=validated_store['latitude'],
                               longitude=validated_store['longitude'],
